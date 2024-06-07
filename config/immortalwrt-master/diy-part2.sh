@@ -23,7 +23,7 @@ sed -i 's/10.0.0.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 # ------------------------------- Other started -------------------------------
 #
 # Add ssr, passwall
-echo 'src-git ssrp https://github.com/Zhenjun10/ssrp.git' >> feeds.conf.default
+echo 'src-git ssrp https://github.com/Zhenjun10/ssrp' >> feeds.conf.default
 
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
