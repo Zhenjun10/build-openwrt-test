@@ -22,9 +22,8 @@ sed -i 's/10.0.0.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 
 # ------------------------------- Other started -------------------------------
 #
-# Add luci-app-amlogic
-# svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-# echo 'src-git amlogic https://github.com/ophub/luci-app-amlogic' >> feeds.conf.default
+# Add ssr, passwall
+echo 'src-git ssrp https://github.com/Zhenjun10/ssrp.git' >> feeds.conf.default
 
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
