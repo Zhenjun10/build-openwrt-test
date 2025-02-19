@@ -33,5 +33,13 @@ jobs:
         cd immortalwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+        
     - name: 开始编译 immortalwrt
-      run: make -j$(nporc) V=s
+      run: |
+        echo "===================="
+        echo "系统核心个数: $(nproc)"
+        echo "当前工作目录: $(pwd)"
+        echo "当前目录内容:"
+        ls -aFhl
+        echo "===================="
+        make -j$(nproc) V=s
