@@ -15,5 +15,23 @@ jobs:
 
     - name: 测试
       run: |
-        pwd
+        echo "===================="
+        echo "系统核心个数: $(nproc)"
+        echo "当前工作目录: $(pwd)"
+        echo "当前目录内容:"
         ls -aFhl
+        echo "===================="
+
+    - name: 克隆 immortalwrt 的 24.10 版本
+      run: git clone -b openwrt-24.10 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt
+
+    - name: 更新订阅内容和配置文件
+      run: cp config/immortalwrt-master/config immortalwrt/.config
+
+    - name: 更新并安装 immortalwrt 包
+      run: |
+        cd immortalwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+    - name: 开始编译 immortalwrt
+      run: make -j$(nporc) V=s
